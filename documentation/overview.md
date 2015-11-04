@@ -42,7 +42,8 @@
         - config
             - global-config
             - namespace.js
-            - require-config.js            
+            - require-config.js
+            - services-config.js
         - mediators
             - boilerplate.js
             - common.js
@@ -79,6 +80,7 @@
     - env
         - .htaccess
         - apache-info.html
+        - index.html
         - lib
             - main.css
         - php-info.php
@@ -86,6 +88,7 @@
         - functions.php
         - index.php
     - plan
+        - index.html
     - responsive
         - index.html
 - services
