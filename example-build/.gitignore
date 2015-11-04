@@ -1,0 +1,10 @@
+*.sublime-project
+*.sublime-workspace
+.DS_Store
+.sass-cache
+.tm_properties
+.tmp
+bower_components
+dist
+library/css
+node_modules
