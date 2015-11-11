@@ -8,7 +8,12 @@
   },
   "globals": {
     //place settings for globals here, such as
-    "exampleGlobalVariable": true
+    "MGMRI": false,
+    "define": false,
+    "require": false,
+    "Modernizr": false,
+    "matchMedia": false,
+    "module": false
   },
   // https://github.com/activatedgeek/eslintrc/blob/master/.eslintrc
   "rules": {
