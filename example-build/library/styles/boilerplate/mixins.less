@@ -55,7 +55,7 @@
 .fonts(@sizeValue) {
     @remValue: (@sizeValue / 16);
     @pxValue: @sizeValue;
-    font-size: ~"@{pxValue}px"; 
+    font-size: ~"@{pxValue}px";
     font-size: ~"@{remValue}rem";
 }
 .transition(@arguments) {
@@ -77,7 +77,7 @@
     -o-transform: ~"scale(@{x}, @{y})";
     transform: ~"scale(@{x}, @{y})";
 }
-.bg-gradient(@first, @second) { 
+.bg-gradient(@first, @second) {
     background: @first; /* Old browsers */
     background: -moz-linear-gradient(top, @first 0%, @second 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@first), color-stop(100%,@second)); /* Chrome,Safari4+ */
@@ -88,7 +88,7 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@{first}', endColorstr='#{second}',GradientType=0 );
 }
 
-/* usage: .radial-gradient(50%, 50%, circle, cover, #ffffff, 0%, #000000, 100%); 
+/* usage: .radial-gradient(50%, 50%, circle, cover, #ffffff, 0%, #000000, 100%);
     https://github.com/commons/less/blob/master/mixins/gradients/radial-gradient.less
 */
 
@@ -185,8 +185,8 @@ For centering an item, be sure to set its parent to
 
 .stop-flicker() {
     // Used to stop flicker when using css3 animations in webkit
-    // This preserves rounded borders, font sizes and stops other 
-    // rendering issues when a transform is being performed 
+    // This preserves rounded borders, font sizes and stops other
+    // rendering issues when a transform is being performed
     -webkit-transform-style: preserve-3d;
 }
 
@@ -195,8 +195,8 @@ For centering an item, be sure to set its parent to
     height: @h;
 }
 .arrow-down( @size, @color:transparent ) {
-    width: 0; 
-    height: 0; 
+    width: 0;
+    height: 0;
     border-left: @size solid transparent;
     border-right: @size solid transparent;
     border-top: @size solid @color;
@@ -241,7 +241,7 @@ For centering an item, be sure to set its parent to
         width: 398px;
         //margin: 0 auto;
     }
-    
+
     span {
         display: inline-block;
         position: relative;
@@ -270,13 +270,4 @@ For centering an item, be sure to set its parent to
     span:after {
         right: 100%;
     }
-}
-.loading-img-extn {
-    .center-center();
-    position: fixed;
-    content: '';
-    width: 40px;
-    height: 40px;
-    background: url('../../../images/mgmGrand/global/loading-coin.gif') no-repeat;
-    z-index: @index-loading-animation;
 }
