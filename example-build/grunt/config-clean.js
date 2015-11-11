@@ -23,13 +23,9 @@ module.exports = function( grunt ) {
         ],
         distPost: [
             '<%= buildPath.dist %>grunt',
-            '<%= buildPath.dist %>**/less',
+            '<%= buildPath.dist %>**/styles',
             '<%= buildPath.dist %>**/build.txt',
             '<%= buildPath.dist %>**/common/css/config'
-        ],
-        svg: [
-            'library/less/' + prop +'/global/icons/delete/',
-            'library/images/' + prop +'/svg-min/'
         ]
     });
 

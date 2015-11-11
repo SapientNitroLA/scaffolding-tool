@@ -8,79 +8,76 @@ module.exports = function( grunt ) {
     // Accept specific files
     // --files="less/mgmGrand/some/path/index.less"
     // --files="less/mgmGrand/some/path/index.less, less/mgmGrand/some/path/index.less"
-    var files = grunt.option( 'files' );
+    var path = require( 'path' )
+        , files = grunt.option( 'files' )
+        , libPath = 'library'
+        , options = {
+            relativeUrls: true,
+            strictMath: true,
+            files: {
+                expand: true,
+                cwd: 'library',
+                src: [
+                    '**/index.less',
+                    '**/svg.less',
+                    '**/logo.less',
+                    '**/logo-resorts.less'
+                ],
+                dest: 'library',
+                ext: '.css'
+            }
+        }
+        ;
 
     if ( files ) {
 
         files = files.split( /,\s*/ );
     }
 
+    // Set the destination to a directory named "css"
+    function rename( dest, src ) {
+
+        var splitDirs = src.split( '/' );
+
+        splitDirs[ splitDirs.indexOf( 'styles' ) ] = 'css';
+
+        return path.join( dest, splitDirs.join( '/' ) );
+    }
+
     grunt.config( 'less', {
         dist: {
             options: {
                 compress: true,
+                relativeUrls: options.relativeUrls,
                 sourceMap: false,
-                strictMath: true,
-                relativeUrls: true
+                strictMath: options.strictMath
             },
             files: [
                 {
                     expand: true,
-                    cwd: 'library',
-                    src: [
-                        '**/index.less',
-                        '**/svg.less',
-                        '**/logo.less',
-                        '**/logo-resorts.less'
-                    ],
-                    dest: 'library',
+                    cwd: libPath,
+                    src: options.files.src,
+                    dest: libPath,
                     ext: '.css',
-
-                    // Set the destination to a directory named "css"
-                    rename: function( dest, src ) {
-
-                        var path = require( 'path' )
-                            , splitDirs = src.split( '/' )
-                            ;
-
-                        splitDirs[ splitDirs.indexOf( 'less' ) ] = 'css';
-
-                        return path.join( dest, splitDirs.join( '/' ) );
-                    }
+                    rename: rename
                 }
             ]
         },
         dev: {
             options: {
+                relativeUrls: options.relativeUrls,
                 sourceMap: true,
-                strictMath: true,
-                relativeUrls: true,
-                sourceMapRootpath: '../../../../'
+                sourceMapRootpath: '../../../../',
+                strictMath: options.strictMath
             },
             files: [
                 {
                     expand: true,
-                    cwd: 'library',
-                    src: files || [
-                        '**/index.less',
-                        '**/svg.less',
-                        '**/logo.less',
-                        '**/logo-resorts.less'
-                    ],
-                    dest: 'library',
+                    cwd: libPath,
+                    src: files || options.files.src,
+                    dest: libPath,
                     ext: '.css',
-
-                    // Set the destination to a directory named "css"
-                    rename: function( dest, src ) {
-
-                        var path = require( 'path' )
-                            , splitDirs = src.split( '/' )
-                            ;
-
-                        splitDirs[ splitDirs.indexOf( 'less' ) ] = 'css';
-
-                        return path.join( dest, splitDirs.join( '/' ) );
-                    }
+                    rename: rename
                 }
             ]
         }

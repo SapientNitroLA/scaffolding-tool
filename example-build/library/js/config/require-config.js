@@ -5,18 +5,8 @@
 */
 var globalExcludes = [
     'jquery',
-    'directives/angular-picturefill',
-    'controllers/sign-in-widget-controller',
-    'filters/custom-date-format-filter',
-    'filters/custom-filters',
     'mediators/common',
-    'modules/analytics-module',
-    'modules/canvas',
-    'modules/global-vps',
-    'modules/booking-widget',
-    'vendor/angular-custom',
-    'vendor/picturefill',
-    'waypoints'
+    'modules/global-vps'
 ];
 
 var require = {
@@ -33,42 +23,13 @@ var require = {
          jquery.js defines its path as `jquery`. The following
          option allows us to locate it at a more logical path.
         */
-        'jquery': 'vendor/jquery',
-        'waypoints' : 'vendor/waypoints.min',
-        'vendor/lodash': 'vendor/lodash.underscore',
-        'vendor/s7video': ( ( typeof MGMRI !== 'undefined' ) && MGMRI.externalUrl && MGMRI.externalUrl.s7video ) || '//s7d1.scene7.com/s7viewers/html5/js/VideoViewer',
-        'cdn/gigya': ( ( typeof MGMRI !== 'undefined' ) && MGMRI.externalUrl && MGMRI.externalUrl.gigya ) || '//cdn.gigya.com/JS/socialize.js?apikey=2_Y82PzwJ_chSFImHXaIDJClnLyJzmk-VFOavSsaNTzl6m901s_NNxRAS0xJ3bd3_N'
+        'jquery': 'vendor/jquery'
     },
 
     shim: {
-        // The angular library does not implement AMD.
-        'vendor/angular-custom': {
-            exports: 'angular'
-        },
-        // The picturefill library does not implement AMD.
-        'vendor/picturefill': {
-            exports: 'picturefill'
-        },
-        // TweenLite library does not implement AMD.  TweenMax does by comparison.
-        'vendor/TweenLite': {
-            deps: [ 'vendor/CSSPlugin' ],
-            exports: 'TweenLite'
-        },
-        // S7 VideoViewer does not implement AMD.
-        'vendor/s7video': {
-            exports: 's7viewers.VideoViewer'
-        },
         // Fix matchMedia.addListener race condition
         'vendor/matchMedia.addListener': {
-            deps: [ 'vendor/matchmedia' ]
-        },
-        // EaselJS library does not implement AMD.
-        'vendor/easel': {
-            exports: 'createjs'
-        },
-        // Gigya library does not implement AMD.
-        'cdn/gigya': {
-            exports: 'gigya'
+            deps: [ 'vendor/matchMedia' ]
         }
     },
 
@@ -84,7 +45,7 @@ var require = {
     */
     deps: [
         // Fix for race condition
-        'vendor/matchmedia',
+        'vendor/matchMedia',
         'vendor/matchMedia.addListener',
         'mediators/common'
     ],
@@ -97,141 +58,8 @@ var require = {
         {
             name: 'mediators/common',
             include: [
-                'modules/global-vps',
-                'controllers/sign-in-widget-controller',
-                'directives/angular-picturefill',
-                'filters/custom-date-format-filter',
-                'filters/custom-filters',
-                'modules/analytics-module',
-                'modules/booking-widget',
-                'modules/canvas',
-                'vendor/angular-custom'
+                'modules/global-vps'
             ]
-        },
-        {
-            name: 'mediators/accounts-primary',
-            exclude: globalExcludes
-        },
-        {
-            name: 'mediators/accounts-summary',
-            exclude: globalExcludes
-        },
-        {
-            name: 'mediators/accounts-tax-print',
-            exclude: globalExcludes
-        },
-        {
-            name: 'mediators/boilerplate',
-            exclude: globalExcludes
-        },
-        {
-            name: 'mediators/booking-bookall',
-            exclude: globalExcludes
-        },
-        {
-            name: 'mediators/booking-room',
-            exclude: globalExcludes
-        },
-        {
-            name: 'mediators/booking-ticketing',
-            exclude: globalExcludes
-        },
-        {
-            name: 'mediators/components-alt',
-            exclude: globalExcludes
-        },
-        {
-            name: 'mediators/components',
-            exclude: globalExcludes
-        },
-        {
-            name: 'mediators/detail',
-            exclude: globalExcludes
-        },
-        {
-            name: 'mediators/dining',
-            exclude: globalExcludes
-        },
-        {
-            name: 'mediators/home',
-            exclude: globalExcludes
-        },
-        {
-            name: 'mediators/anchor-detail',
-            exclude: globalExcludes
-        },
-        {
-            name: 'mediators/hotel-comparison-all',
-            exclude: globalExcludes
-        },
-        {
-            name: 'mediators/open-detail',
-            exclude: globalExcludes
-        },
-        {
-            name: 'mediators/itinerary-confirmation',
-            exclude: globalExcludes
-        },
-        {
-            name: 'mediators/itinerary-print',
-            exclude: globalExcludes
-        },
-        {
-            name: 'mediators/itinerary',
-            exclude: globalExcludes
-        },
-        {
-            name: 'mediators/landing',
-            exclude: globalExcludes
-        },
-        {
-            name: 'mediators/miscellaneous',
-            exclude: globalExcludes
-        },
-        //list of modules that should load asynchronously
-        {
-            name: 'modules/account-signin',
-            exclude: globalExcludes
-        },
-        {
-            name: 'modules/account-forgotpassword',
-            exclude: globalExcludes
-        },
-        {
-            name: 'modules/accounts-passwordreset',
-            exclude: globalExcludes
-        },
-        {
-            name: 'modules/accounts-verifyemail',
-            exclude: globalExcludes
-        },
-        {
-            name: 'modules/accounts-activate-mlife',
-            exclude: globalExcludes
-        },
-        {
-            name: 'modules/accounts-signup',
-            exclude: globalExcludes
-        },
-        {
-            name: 'modules/accounts-create-web-account',
-            exclude: globalExcludes
-        },
-        {
-            name: 'modules/account-manage-preferences',
-            exclude: globalExcludes
-        },
-        {
-            name: 'modules/account-unauth-profile',
-            exclude: globalExcludes
-        },
-        {
-            name: 'modules/account-find-reservation',
-            exclude: globalExcludes
-        },
-        {
-            name: 'modules/account-guest-book',
-            exclude: globalExcludes
         }
     ],
 

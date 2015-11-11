@@ -4,7 +4,6 @@ module.exports = function( grunt ) {
     grunt.initConfig({
         pkg: grunt.file.readJSON( 'package.json' ),
         buildRoot: '../',
-        revision: 0, // updated via gitsvn:info task
         buildName: {
             dev: '<%= pkg.name %>-dev-build',
             dist: '<%= pkg.name %>-dist-build'
@@ -44,12 +43,5 @@ module.exports = function( grunt ) {
     grunt.registerTask( 'lessDist', 'Build to compile Less files for distribution.', [
         'clean:css',
         'less:dist'
-    ]);
-
-    grunt.registerTask( 'svg', 'Build to convert SVG files to Data Uri and generate CSS.', [
-        'validate:svg',
-        'svgmin',
-        'grunticon:myIcons',
-        'clean:svg'
     ]);
 };

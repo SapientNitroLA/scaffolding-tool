@@ -4,13 +4,13 @@
  * See all options: https://github.com/jrburke/r.js/blob/master/build/example.build.js
  */
 module.exports = function( grunt ) {
-    
+
     var pathToMainConfigFile = 'library/js/config/require-config.js';
-    
+
     var vm = require( 'vm' )
         , _ = require( 'lodash' )
         ;
-    
+
     var mainConfig = {}
         , mainConfigFile = grunt.file.read( pathToMainConfigFile )
         ;
@@ -25,23 +25,23 @@ module.exports = function( grunt ) {
          This path is relative to this file.
         */
         appDir: './library',
-        
+
         /*
          This is the main path to which our modules are relative.
          This path is relative to the `appDir` option.
         */
         baseUrl: 'js',
-        
+
         /*
          If using UglifyJS for script optimization, these config options will be
          passed to UglifyJS.
          See https://github.com/mishoo/UglifyJS for the possible values.
         */
+        /*
+         Custom value supported by r.js but done differently in uglifyjs directly:
+         Skip the processor.ast_mangle() part of the uglify call (r.js 2.0.5+)
+        */
         // uglify: {
-            /*
-             Custom value supported by r.js but done differently in uglifyjs directly:
-             Skip the processor.ast_mangle() part of the uglify call (r.js 2.0.5+)
-            */
         //     no_mangle: false,
         //     compress: {
         //         dead_code: true,
@@ -51,10 +51,10 @@ module.exports = function( grunt ) {
 
         // Set 'none' so you can see how the files are concatenated.
         // optimize: 'none',
-        
+
         // Ignore the css files
         optimizeCss: 'none',
-        
+
         /*
          Introduced in 2.1.2: If using "dir" for an output directory, normally the
          optimize setting is used to optimize the build bundles (the "modules"
@@ -74,7 +74,7 @@ module.exports = function( grunt ) {
          Paths are relative to `baseUrl`.
         */
         paths: mainConfig.require.paths,
-        
+
         /*
          If shim config is used in the app during runtime, duplicate the config
          here. Necessary if shim config is used, so that the shim's dependencies
@@ -87,7 +87,7 @@ module.exports = function( grunt ) {
          'moduleA' and instead get 'moduleB'.
         */
         map: mainConfig.require.map,
-        
+
         /*
          Create an object for each bootstrap to be optimized. Their immediate
          and deep dependencies will be built into the main module's file.
@@ -108,35 +108,15 @@ module.exports = function( grunt ) {
          the content.
         */
         onBuildRead: function ( moduleName, path, contents ) {
-            
+            // console.log( 'path:', path.indexOf( 'vendor' ) );
             // If file is not in 'vendor' directory remove console statements
-            var data = ( path.indexOf( 'vendor' ) >= 0 ) ? contents : contents.replace( /console(.*)\(.*\);/g, '' );
-
-            /*
-             Run 'ng-annotate' during r.js concatenation process to fix any
-             AngularJS dependency errors on minification
-             REFERENCE: https://github.com/olov/ng-annotate
-            */
-            var res = require( 'ng-annotate' )( data, {
-                add: true,
-            });
-
-            if ( res.errors ) {
-                
-                // do something with this, res.errors is now an array of strings
-                throw new Error( res.errors.join( '\n' ) );
-                
-            } else {
-
-                return res.src;
-            }
-
+            // var data = ( path.indexOf( 'vendor' ) >= 0 ) ? contents : contents.replace( /console(.*)\(.*\);/g, '' );
         }
     };
 
 
     grunt.config( 'requirejs', {
-        
+
         dev: {
             options: _.assign( _.clone( common, true ), {
                 dir: '<%= buildPath.dev %>library/',
@@ -151,6 +131,6 @@ module.exports = function( grunt ) {
             } )
         }
     });
-    
+
     grunt.loadNpmTasks( 'grunt-contrib-requirejs' );
 };

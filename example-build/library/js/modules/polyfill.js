@@ -6,10 +6,7 @@
 define(
     [
         'vendor/matchmedia',
-        'vendor/matchMedia.addListener',
-        'vendor/function.prototype.bind',
-        'vendor/object.create',
-        'vendor/storage.prototype'
+        'vendor/matchMedia.addListener'
     ],
 
     function() {}
