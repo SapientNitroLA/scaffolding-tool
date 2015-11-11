@@ -1,103 +1,27 @@
 # Guidelines
 
-- Frictionless: Is this the easiest way to scaffold a project?  Is this the best way for both large and small projects?
+- Frictionless: Is this the easiest way to scaffold a project?  Is this the best way for both large and small projects?  Can the developer easily add new features?
 - DRY: Does the approach cause duplicated effort?
-- Useful: Is scaffolding useful to the developer?
-- Evergreen: Does the approach require unrelated effort to just to stay up to date?
+- Senior Associate skill level
+- Am I reliable?
+
 
 # Requirements
 
-- Build a default project with one command
-- Customize a project by using config file
-- Add additional features/update project by use of a generator?
-- Save/share configuration files. Tags?
+- Build a default buildable project with a single CLI command
+- Customize scaffolded project by using config file
+- Add additional features/update project by use of a generator
+    - Scaffold out Angular
+    - custom modules (js/css/html)
+    - Add/remove services
+- Add sugarcoat
+- Include deployment project
+- Include testing framework
 
 
-## Default site
+# Additional features?
 
-- .editorconfig
-- .gitattributes
-- .gitignore
-- .htaccess
-- .jshintrc
-- components
-    - example
-        - index.html
-- docs
-- grunt
-    - config-clean.js
-    - config-compress.js
-    - config-copy.js
-    - config-githooks.js
-    - config-jshint.js
-    - config-less.js
-    - config-requirejs.js
-    - config-uglify.js
-    - config-watch.js
-- Gruntfile.js
-- index.html
-- library
-    - images
-    - js
-        - config
-            - global-config
-            - namespace.js
-            - require-config.js
-            - services-config.js
-        - mediators
-            - boilerplate.js
-            - common.js
-            - home.js
-        - modules
-            - global-vps.js
-            - no-conflict.js
-            - polyfill.js
-            - pubsub.js
-        - vendor
-            - jquery.js
-            - lodash.js
-            - Modernizr.js
-            - picturefill.js
-            - require.js
-            - viewport.js
-    - less
-        - config
-            - index.less
-            - mixins.less
-            - variables.less
-        - home
-            - index.less
-            - default.less
-            - mixins.less
-            - variables.less
-- package.json
-- pageComponents
-    - baseLayoutPage
-        - apache-vars.html        - document-header.html        - global-scripts-footer.html        - global-scripts-head.html        - global-styles.html    - boilerplate
-        - footer-assets.html        - head-assets.html        - index.html    - home
-        - footer-assets.html        - head-assets.html        - index.html- README.md
-- resources
-    - env
-        - .htaccess
-        - apache-info.html
-        - index.html
-        - lib
-            - main.css
-        - php-info.php
-    - flagged
-        - functions.php
-        - index.php
-    - plan
-        - index.html
-    - responsive
-        - index.html
-- services
-    - .htaccess
-    - composer.json
-    - composer.lock
-    - index.php
-    - README.md
-    - vendor
+- Save/share configuration files (tags)
 
 
 ## Configuration
@@ -108,14 +32,13 @@
 - Create ES6-based project
     - Choose transpiler
 - Add templating engine
-- Change server
-- Add/remove services
-- Choose linting library
+- Build tool
+- Change server type
 - Add testing framework
 - Git/SVN
 - Responsive
     - breakpoints
-
+- Module format (AMD/UMD/CommonJS)?
 
 
 # Goals
@@ -136,19 +59,21 @@
     - .htaccess
     - .gitignore
     - .ico
-    - .jshintrc
+    - .eslintrc
 - integrate external projects
-    - Documentation
+    - sugarcoat
     - Release Strategy
     - Testing
-- post-build
+- post-scaffold
     - npm install
-    
+
 
 ## Stage 2
 
 - Scaffold project using external config file
+- Specify build tool
 - JavaScript
+    - AMD/UMD/CommonJS
     - framework
     - coffeescript
     - typescript
@@ -165,22 +90,22 @@
         - npm module (http server)
 - CSS
     - **less**
-    - sass
     - scss
+        - compass
+        - bourbon
+        - bootstrap
     - stylus
-    - compass
-    - bourbon
-    - bootstrap
 - templating engine
     - Handlebars
     - **HTMLbars**
     - Jade
     - Mustache
-    - Underscore/Lodash
-- package/task manager/dependencies
+    - Lodash
+- package manager
     - **volo**
     - bower
     - jspm
+- task manager
     - browserify
     - webpack
     - **grunt**
@@ -188,8 +113,103 @@
     - brunch
     - mimosa
     - gulp
-- linting
-    - jslint
-    - **jshint**
-    - eslint
-    
+
+
+## Default site
+
+- .eslintrc
+- .gitattributes
+- .gitignore
+- .htaccess
+- components
+    - example
+        - index.html
+- docs
+- grunt
+    - config-clean.js
+    - config-copy.js
+    - config-githooks.js
+    - config-jshint.js
+    - config-less.js
+    - config-requirejs.js
+    - config-uglify.js
+    - config-watch.js
+- Gruntfile.js
+- index.html
+- library
+    - images
+    - js
+        - config
+            - global-config.js
+            - require-config.js
+            - services-config.js
+        - mediators
+            - boilerplate.js
+            - common.js
+            - home.js
+        - modules
+            - global-vps.js
+            - namespace.js
+            - noconflict.js
+            - polyfill.js
+            - pubsub.js
+        - vendor
+            - jquery.js
+            - matchMedia.addListener.js
+            - matchMedia.js
+            - Modernizr.js
+            - picturefill.js
+            - require.js
+            - viewport.js
+    - styles
+        - boilerplate
+            - default.less
+            - index.less
+            - mixins.less
+            - variables.less
+        - components
+        - config
+            - index.less
+            - mixins.less
+            - variables.less
+        - global
+        - pages
+            - home
+                - index.less
+                - default.less
+                - mixins.less
+                - variables.less
+- package.json
+- pages
+    - includes
+        - apache-vars.html
+        - document-header.html
+        - global-scripts-footer.html
+        - global-scripts-headerer.html
+        - global-styles.html
+    - boilerplate
+        - footer.html
+        - header.html
+        - index.html
+    - home
+        - footer.html
+        - header.html
+        - index.html
+- README.md
+- resources
+    - env
+        - .htaccess
+        - apache-info.html
+        - index.html
+        - lib
+            - main.css
+        - php-info.php
+    - plan
+        - index.html
+- services
+    - .htaccess
+    - composer.json
+    - composer.lock
+    - index.php
+    - README.md
+    - vendor
