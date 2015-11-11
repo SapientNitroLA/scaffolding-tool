@@ -1,5 +1,5 @@
 // Global Namespace for MGM Resorts International
-var MGMRI = MGMRI || {};
+window.MGMRI = window.MGMRI || {};
 
 /*
 * Convenience function for parsing string namespaces and automatically generating nested namespaces.
@@ -12,7 +12,9 @@ var MGMRI = MGMRI || {};
 * @param ns {String} A dot separated namespace
 *
 */
-MGMRI.extend = function( ns ) {
+window.MGMRI.extend = function( ns ) {
+
+    'use strict';
 
     var parts = ns.split( '.' )
         , parent = this
