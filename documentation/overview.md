@@ -168,11 +168,21 @@
             - mixins.less
             - variables.less
         - components
+            - example
+                - default.less
+                - index.less
+                - mixins.less
+                - variables.less
         - config
             - index.less
             - mixins.less
             - variables.less
         - global
+            - base
+                - default.less
+                - index.less
+                - normalize.css
+                - typography.less
         - pages
             - home
                 - index.less
@@ -181,12 +191,6 @@
                 - variables.less
 - package.json
 - pages
-    - includes
-        - apache-vars.html
-        - document-header.html
-        - global-scripts-footer.html
-        - global-scripts-headerer.html
-        - global-styles.html
     - boilerplate
         - footer.html
         - header.html
@@ -195,6 +199,12 @@
         - footer.html
         - header.html
         - index.html
+    - includes
+        - apache-vars.html
+        - document-header.html
+        - global-scripts-footer.html
+        - global-scripts-headerer.html
+        - global-styles.html
 - README.md
 - resources
     - env
