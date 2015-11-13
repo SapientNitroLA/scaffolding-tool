@@ -19,14 +19,14 @@ module.exports = function( grunt ) {
 
     /* Task aliases */
     grunt.registerTask( 'default', 'Build for testing.', [
-        'jshint', // Lint all appropriate js files
+        //'eslint', // Lint all appropriate js files
         'less:dev',
         'copy:dev',
         'requirejs:dev'
     ]);
 
     grunt.registerTask( 'dist', 'Build for integration handoff.', [
-        'jshint', // Lint all appropriate js files
+        //'eslint', // Lint all appropriate js files
         'less:dist',
         'clean:distPre',
         'copy:dist',

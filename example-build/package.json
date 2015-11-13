@@ -8,16 +8,16 @@
   "homepage": "http://sapientnitro.com/",
   "dependencies": {
     "grunt": "~0.4.2",
+    "eslint": "^1.9.0",
     "grunt-cli": "~0.1.13",
     "grunt-contrib-clean": "~0.5.0",
     "grunt-contrib-copy": "~0.5.0",
-    "grunt-contrib-jshint": "~0.8.0",
     "grunt-contrib-less": "https://github.com/robertinglin/grunt-contrib-less/tarball/master",
     "grunt-contrib-requirejs": "~0.4.3",
     "grunt-contrib-uglify": "^0.9.1",
     "grunt-contrib-watch": "~0.5.3",
+    "grunt-eslint": "^17.3.1",
     "grunt-githooks": "~0.3.1",
-    "jshint": "~2.5.0",
     "lodash": "~2.4.1"
   },
   "volo": {

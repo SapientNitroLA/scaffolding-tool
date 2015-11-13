@@ -128,8 +128,8 @@
 - grunt
     - config-clean.js
     - config-copy.js
+    - config-eslint.js
     - config-githooks.js
-    - config-jshint.js
     - config-less.js
     - config-requirejs.js
     - config-uglify.js
