@@ -5,14 +5,10 @@
  */
 module.exports = function( grunt ) {
 
-    var pathToMainConfigFile = 'library/js/config/require-config.js';
-
-    var vm = require( 'vm' )
+    var mainConfigFile = grunt.file.read( 'library/js/config/require-config.js' )
         , _ = require( 'lodash' )
-        ;
-
-    var mainConfig = {}
-        , mainConfigFile = grunt.file.read( pathToMainConfigFile )
+        , vm = require( 'vm' )
+        , mainConfig = {}
         ;
 
     vm.runInNewContext( mainConfigFile, mainConfig );
@@ -95,7 +91,7 @@ module.exports = function( grunt ) {
 
          Modules are added in the site's `require-config.js` file.
         */
-        modules: mainConfig.require.modules,
+        modules: mainConfig.require.modules
 
         /*
          Used for unit testing.  Needed for `ngmin`?
@@ -107,23 +103,23 @@ module.exports = function( grunt ) {
          build that is done to trace JS dependencies. This allows transforms of
          the content.
         */
-        onBuildRead: function ( moduleName, path, contents ) {
-            // console.log( 'path:', path.indexOf( 'vendor' ) );
-            // If file is not in 'vendor' directory remove console statements
-            // var data = ( path.indexOf( 'vendor' ) >= 0 ) ? contents : contents.replace( /console(.*)\(.*\);/g, '' );
-        }
+        // onBuildRead: function ( moduleName, path, contents ) {
+
+        //     // If file is not in 'vendor' directory remove console statements
+        //     var data = ( path.indexOf( 'vendor' ) >= 0 ) ? contents : contents.replace( /console(.*)\(.*\);/g, '' );
+
+        //     return data;
+        // }
     };
 
 
     grunt.config( 'requirejs', {
-
         dev: {
             options: _.assign( _.clone( common, true ), {
                 dir: '<%= buildPath.dev %>library/',
                 optimize: 'none',
             } )
         },
-
         dist: {
             options: _.assign( _.clone( common, true ), {
                 dir: '<%= buildPath.dist %>library/',
