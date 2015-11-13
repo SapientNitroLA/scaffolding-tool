@@ -5,12 +5,13 @@
  */
 module.exports = function( grunt ) {
 
-    var modules, length, path
+    var mainConfigFile = grunt.file.read( 'library/js/config/require-config.js' )
         , vm = require( 'vm' )
-        , pathToMainConfigFile = 'library/js/config/require-config.js'
-        , mainConfigFile = grunt.file.read( pathToMainConfigFile )
         , mainConfig = {}
         , distFiles = {}
+        , modules
+        , length
+        , path
         ;
 
     vm.runInNewContext( mainConfigFile, mainConfig );
@@ -32,16 +33,14 @@ module.exports = function( grunt ) {
     ];
 
     grunt.config( 'uglify', {
-
         options: {
-
+            compress: {
+                drop_console: true
+            },
             report: 'gzip'
-
         },
         dist: {
-
             files: distFiles
-
         }
     });
 
