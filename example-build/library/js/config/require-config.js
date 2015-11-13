@@ -58,8 +58,12 @@ var require = {
         {
             name: 'mediators/common',
             include: [
-                'modules/global-vps'
+                'modules/global-vps',
             ]
+        },
+        {
+            name: 'mediators/home',
+            exclude: globalExcludes
         }
     ],
 
