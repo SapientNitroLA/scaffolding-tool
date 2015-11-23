@@ -18,7 +18,7 @@ module.exports = function( grunt ) {
     grunt.loadTasks( 'grunt' );
 
     /* Task aliases */
-    grunt.registerTask( 'default', 'Build for testing.', [
+    grunt.registerTask( 'dev', 'Build for testing.', [
         //'eslint', // Lint all appropriate js files
         'less:dev',
         'copy:dev',
