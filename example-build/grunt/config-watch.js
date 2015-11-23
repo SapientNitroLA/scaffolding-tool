@@ -20,7 +20,7 @@ module.exports = function( grunt ) {
 
     grunt.config( 'watch', {
         less: {
-            files: [ 'library/**/*.less' ],
+            files: [ 'library/styles/**/*.less' ],
             tasks: [ tasks ]
         }
     });
