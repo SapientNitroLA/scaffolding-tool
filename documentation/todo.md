@@ -1,2 +1,7 @@
-- configure eslint
+- ESLINT
+    - configure .eslintrc
+    - configure eslint grunt task
+    - change grunt-githooks to eslint
 - fix LESS sourcemaps
+- test if jquery is truly protected
+- research matchmedia/matchmedia.addlistener
