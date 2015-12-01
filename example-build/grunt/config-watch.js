@@ -8,7 +8,7 @@ module.exports = function( grunt ) {
     // Accept specific files
     // --files="less/mgmGrand/some/path/index.less"
     // --files="less/mgmGrand/some/path/index.less, less/mgmGrand/some/path/index.less"
-    var tasks = 'lessDev'
+    var tasks = [ 'lessDev' ]
         , files = grunt.option( 'files' )
         ;
 
@@ -21,7 +21,7 @@ module.exports = function( grunt ) {
     grunt.config( 'watch', {
         less: {
             files: [ 'library/styles/**/*.less' ],
-            tasks: [ tasks ]
+            tasks: tasks
         }
     });
 
