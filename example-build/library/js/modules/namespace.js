@@ -18,22 +18,29 @@ window.MGMRI.extend = function( ns ) {
 
     var parts = ns.split( '.' )
         , parent = this
+        , len
+        , i
         ;
 
     if ( parts[ 0 ] === 'MGMRI' ) {
+
         parts = parts.slice( 1 );
+
     }
 
-    for ( var i = 0, len = parts.length; i < len; i++ ) {
+    for ( i = 0, len = parts.length; i < len; i++ ) {
 
         // Create a property if it doesn't exist
         if ( typeof parent[ parts[ i ] ] === 'undefined' ) {
 
             parent[ parts[ i ] ] = {};
+
         }
 
         parent = parent[ parts[ i ] ];
+
     }
 
     return parent;
+
 };

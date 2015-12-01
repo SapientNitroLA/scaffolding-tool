@@ -1,13 +1,15 @@
 require(
     [
         'jquery',
-        'mediators/common'
+        'mediators/common',
+        'modules/global-vps'
     ],
 
     function(
 
         $,
-        common
+        common,
+        viewport
 
     ) {
 
@@ -20,14 +22,24 @@ require(
             init: function() {
 
                 $( this.initUI.bind( this ) );
+
             },
 
             initUI: function() {
 
                 console.log( 'home mediator' );
+
+                viewport.subscribe( '*', function( current, prev ) {
+
+                    console.log( 'current viewport:', current.name );
+
+                });
+
             }
+
         };
 
         home.init();
+
     }
 );

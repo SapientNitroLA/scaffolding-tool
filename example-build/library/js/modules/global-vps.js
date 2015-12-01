@@ -2,11 +2,9 @@
  * Docs can be viewed at https://github.com/ryanfitzer/ViewportJS
  */
 define(
-
     [
         'vendor/viewport'
     ],
-
     function(
 
         viewport
@@ -35,5 +33,6 @@ define(
         ]);
 
         return globalViewport;
+
     }
 );

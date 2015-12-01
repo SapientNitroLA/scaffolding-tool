@@ -1,11 +1,13 @@
 define(
     [
-        'jquery'
+        'jquery',
+        'modules/polyfill'
     ],
 
     function(
 
-        $
+        $,
+        polyfill
 
     ) {
 
@@ -19,14 +21,17 @@ define(
                 $( this.initUI.bind( this ) );
 
                 return this;
+
             },
 
             initUI: function() {
 
                 console.log( 'common.initUI' );
+
             }
         };
 
         return common;
+
     }
 );

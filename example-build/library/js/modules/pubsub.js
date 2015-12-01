@@ -1,12 +1,14 @@
 define(
-
     [
         'jquery'
     ],
-
     function(
+
         $
+
     ) {
+
+        'use strict';
 
         var topics = {};
 
@@ -36,16 +38,19 @@ define(
          * @param {string} id Pubsub instance ID.
          * @return {object} pubsub API for current instance with ID `id`.
          */
-        return function(id) {
+        return function( id ) {
 
-            var callbacks, topic;
+            var callbacks
+                , topic
+                ;
 
-            if (id.length) {
+            if ( id.length ) {
 
-                topic = topics[id];
+                topic = topics[ id ];
+
             }
 
-            if (!topic) {
+            if ( !topic ) {
 
                 callbacks = $.Callbacks();
 
@@ -79,12 +84,17 @@ define(
                     unsubscribe: callbacks.remove
                 };
 
-                if (id) {
-                    topics[id] = topic;
+                if ( id ) {
+
+                    topics[ id ] = topic;
+
                 }
+
             }
 
             return topic;
+
         };
+
     }
 );

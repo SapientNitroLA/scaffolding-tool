@@ -6,31 +6,28 @@
     //enable browser environment
     "browser": 1
   },
+  "extends": "eslint:recommended",
   "globals": {
     //place settings for globals here, such as
-    "MGMRI": false,
-    "define": false,
-    "require": false,
-    "Modernizr": false,
-    "matchMedia": false,
-    "module": false
+    "define": false
   },
   // https://github.com/activatedgeek/eslintrc/blob/master/.eslintrc
   "rules": {
     /**
      * Strict mode
      */
-    "strict": [2, "never"],
-    "no-var": 2,
+    "no-var": 0,
+    "strict": 1,
     /**
      * Basic errors
      */
+    "block-scoped-var": 2,
     "comma-dangle": [2, "never"],
+    "no-alert": 0,
     "no-cond-assign": [2, "always"],
     "no-console": 0,
-    "no-debugger": 1,
-    "no-alert": 0,
     "no-constant-condition": 1,
+    "no-debugger": 1,
     "no-dupe-keys": 2,
     "no-duplicate-case": 2,
     "no-empty": 2,
@@ -42,12 +39,11 @@
     "no-invalid-regexp": 2,
     "no-irregular-whitespace": 2,
     "no-obj-calls": 2,
-    "quote-props": 0,
     "no-sparse-arrays": 2,
     "no-unreachable": 2,
-    "use-isnan": 2,
-    "block-scoped-var": 2,
+    "quote-props": 0,
     "quotes": [1, "single"],
+    "use-isnan": 2,
     /**
      * Variables
      */
@@ -55,7 +51,7 @@
     "no-shadow-restricted-names": 2,
     "no-unused-vars": [2, {
       "vars": "local",
-      "args": "after-used"
+      "args": "none"
     }],
     "no-use-before-define": 2,
     /**
@@ -103,7 +99,7 @@
     /**
      * Style
      */
-    "indent": [2, "tab"],
+    "indent": 2,
     "brace-style": [2,
       "1tbs", {
       "allowSingleLine": true
@@ -118,14 +114,15 @@
       "before": false,
       "after": true
     }],
-    "comma-style": [2, "last"],
+    "comma-style": [0, "first"],
     "eol-last": 2,
     "key-spacing": [2, {
         "beforeColon": false,
         "afterColon": true
     }],
     "new-cap": [2, {
-      "newIsCap": true
+      "newIsCap": true,
+      "capIsNew": false
     }],
     "no-multiple-empty-lines": [2, {
       "max": 2
@@ -136,8 +133,8 @@
     "no-trailing-spaces": 2,
     "no-extra-parens": 0,
     "no-underscore-dangle": 0,
-    "one-var": [2, "never"],
-    "padded-blocks": [2, "never"],
+    "one-var": [2, "always"],
+    "padded-blocks": [2, "always"],
     "semi": [2, "always"],
     "semi-spacing": [2, {
       "before": false,
@@ -148,9 +145,31 @@
     "space-before-function-paren": [2, "never"],
     "space-infix-ops": 2,
     "space-return-throw-case": 2,
-    "spaced-comment": 1
+    "spaced-comment": 1,
+    /**
+     * RequireJS
+     */
+    "requirejs/enforce-define": [
+      2,
+      [
+        "**/mediators/*.js",
+        "**/namespace.js"
+      ]
+    ],
+    "requirejs/no-invalid-define": 2,
+    "requirejs/no-multiple-define": 2,
+    "requirejs/no-named-define": 2,
+    "requirejs/no-commonjs-wrapper": 2,
+    "requirejs/no-js-extension": 2,
+    "requirejs/no-object-define": 1,
+    // "requirejs/one-dependency-per-line": [ 2,
+    //   {
+    //     "paths": "always",
+    //     "names": "never"
+    //   }
+    // ]
   },
   "plugins": [
-    //you can put plugins here
+    "requirejs"
   ]
 }
