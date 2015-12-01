@@ -6,7 +6,8 @@
 module.exports = function( grunt ) {
 
     var mainConfigFile = grunt.file.read( 'library/js/config/require-config.js' )
-        , _ = require( 'lodash' )
+        , merge = require( 'lodash.merge' )
+        , clone = require( 'lodash.cloneDeep' )
         , vm = require( 'vm' )
         , mainConfig = {}
         ;
@@ -115,13 +116,13 @@ module.exports = function( grunt ) {
 
     grunt.config( 'requirejs', {
         dev: {
-            options: _.assign( _.clone( common, true ), {
+            options: merge( clone( common ), {
                 dir: '<%= buildPath.dev %>library/',
                 optimize: 'none',
             } )
         },
         dist: {
-            options: _.assign( _.clone( common, true ), {
+            options: merge( clone( common ), {
                 dir: '<%= buildPath.dist %>library/',
                 skipDirOptimize: false
             } )
