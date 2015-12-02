@@ -29,7 +29,7 @@ require(
 
                 console.log( 'home mediator' );
 
-                viewport.subscribe( '*', function( current, prev ) {
+                viewport.subscribe( '*', function( current ) {
 
                     console.log( 'current viewport:', current.name );
 
