@@ -9,3 +9,4 @@
 - update/move namespace.js
 - add/move matchMedia deps to global includes?
 - Fix `require-config.js` and `config-require.js`
+- integrate Flow/Typescript
