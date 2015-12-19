@@ -1,5 +1,7 @@
 module.exports = function( grunt ) {
 
+    'use strict';
+
     /* Configure */
     grunt.initConfig({
         pkg: grunt.file.readJSON( 'package.json' ),
@@ -19,14 +21,14 @@ module.exports = function( grunt ) {
 
     /* Task aliases */
     grunt.registerTask( 'dev', 'Build for testing.', [
-        //'eslint', // Lint all appropriate js files
+        'eslint', // Lint all appropriate js files
         'less:dev',
         'copy:dev',
         'requirejs:dev'
     ]);
 
     grunt.registerTask( 'dist', 'Build for integration handoff.', [
-        //'eslint', // Lint all appropriate js files
+        'eslint', // Lint all appropriate js files
         'less:dist',
         'clean:distPre',
         'copy:dist',
@@ -44,4 +46,5 @@ module.exports = function( grunt ) {
         'clean:css',
         'less:dist'
     ]);
+
 };

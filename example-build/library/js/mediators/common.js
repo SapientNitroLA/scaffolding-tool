@@ -3,7 +3,6 @@ define(
         'jquery',
         'modules/polyfill'
     ],
-
     function(
 
         $,

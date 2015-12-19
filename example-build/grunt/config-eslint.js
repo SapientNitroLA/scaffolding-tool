@@ -6,13 +6,16 @@
  */
 module.exports = function( grunt ) {
 
+    'use strict';
+
     grunt.config( 'eslint', {
         src: [
             'library/**/*.js',
             '!library/**/config/*.js',
-            '!library/**/vendor/**/*.js',
+            '!library/**/vendor/**/*.js'
         ]
     });
-     
+
     grunt.loadNpmTasks( 'grunt-eslint' );
+
 };
