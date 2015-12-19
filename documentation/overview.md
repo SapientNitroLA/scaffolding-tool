@@ -105,7 +105,7 @@
     - **volo**
     - bower
     - jspm
-- task manager
+- task manager/bundler
     - browserify
     - webpack
     - **grunt**
@@ -113,6 +113,7 @@
     - brunch
     - mimosa
     - gulp
+    - rollup
 
 
 ## Default site
