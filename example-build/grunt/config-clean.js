@@ -5,7 +5,6 @@
  */
 module.exports = function( grunt ) {
 
-    var prop = grunt.option( 'property' );
 
     grunt.config( 'clean', {
         options: {
