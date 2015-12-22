@@ -9,7 +9,7 @@ module.exports = function( grunt ) {
 
     grunt.config( 'githooks', {
         all: {
-            'pre-commit': 'jshint',
+            'pre-commit': 'eslint'
         }
     });
 
