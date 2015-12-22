@@ -22,6 +22,9 @@
     "lodash.clonedeep": "^3.0.2",
     "lodash.merge": "^3.3.2"
   },
+  "scripts": {
+    "postinstall": "grunt githooks"
+  },
   "volo": {
     "baseDir": "library/js/vendor",
     "dependencies": {
