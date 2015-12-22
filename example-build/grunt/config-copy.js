@@ -5,6 +5,8 @@
  */
 module.exports = function( grunt ) {
 
+    'use strict';
+
     grunt.config( 'copy', {
         dev: {
             src: [
@@ -42,3 +44,4 @@ module.exports = function( grunt ) {
         }
     });
 
+};

@@ -5,6 +5,8 @@
  */
 module.exports = function( grunt ) {
 
+    'use strict';
+
     // Accept specific files
     // --files="less/mgmGrand/some/path/index.less"
     // --files="less/mgmGrand/some/path/index.less, less/mgmGrand/some/path/index.less"
@@ -32,6 +34,7 @@ module.exports = function( grunt ) {
     if ( files ) {
 
         files = files.split( /,\s*/ );
+
     }
 
     // Set the destination to a directory named "css"
@@ -42,6 +45,7 @@ module.exports = function( grunt ) {
         splitDirs[ splitDirs.indexOf( 'styles' ) ] = 'css';
 
         return path.join( dest, splitDirs.join( '/' ) );
+
     }
 
     grunt.config( 'less', {
@@ -67,6 +71,7 @@ module.exports = function( grunt ) {
             options: {
                 relativeUrls: options.relativeUrls,
                 sourceMap: true,
+                sourceMapFileInline: true,
                 sourceMapRootpath: '../../../../',
                 strictMath: options.strictMath
             },

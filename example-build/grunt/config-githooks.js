@@ -5,9 +5,12 @@
  */
 module.exports = function( grunt ) {
 
+    'use strict';
+
     grunt.config( 'githooks', {
         all: {
             'pre-commit': 'jshint',
         }
     });
 
+};

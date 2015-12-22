@@ -5,16 +5,19 @@
  */
 module.exports = function( grunt ) {
 
+    'use strict';
+
     var mainConfigFile = grunt.file.read( 'library/js/config/require-config.js' )
         , merge = require( 'lodash.merge' )
         , clone = require( 'lodash.cloneDeep' )
         , vm = require( 'vm' )
         , mainConfig = {}
+        , common
         ;
 
     vm.runInNewContext( mainConfigFile, mainConfig );
 
-    var common = {
+    common = {
 
         // generateSourceMaps: true,
         /*
@@ -97,7 +100,7 @@ module.exports = function( grunt ) {
         /*
          Used for unit testing.  Needed for `ngmin`?
         */
-        //normalizeDirDefines: 'all',
+        // normalizeDirDefines: 'all',
 
         /*
          A function that if defined will be called for every file read in the
@@ -118,7 +121,7 @@ module.exports = function( grunt ) {
         dev: {
             options: merge( clone( common ), {
                 dir: '<%= buildPath.dev %>library/',
-                optimize: 'none',
+                optimize: 'none'
             } )
         },
         dist: {

@@ -5,6 +5,8 @@
  */
 module.exports = function( grunt ) {
 
+    'use strict';
+
     var mainConfigFile = grunt.file.read( 'library/js/config/require-config.js' )
         , vm = require( 'vm' )
         , mainConfig = {}
@@ -12,6 +14,7 @@ module.exports = function( grunt ) {
         , modules
         , length
         , path
+        , i
         ;
 
     vm.runInNewContext( mainConfigFile, mainConfig );
@@ -19,13 +22,14 @@ module.exports = function( grunt ) {
     modules = mainConfig.require.modules;
     length = modules.length;
 
-    for ( var i = 0; i < length; i++ ) {
+    for ( i = 0; i < length; i++ ) {
 
         path = modules[ i ].name;
 
         distFiles[ '<%= buildPath.dist %>library/js/' + path + '.js' ] = '<%= buildPath.dist %>library/js/' + path + '.js';
+
     }
-    
+
     // Concatenate require.js and common.js to fix mediator race condition
     distFiles[ '<%= buildPath.dist %>library/js/vendor/require.js' ] = [
         '<%= buildPath.dist %>library/js/vendor/require.js',
@@ -44,3 +48,4 @@ module.exports = function( grunt ) {
         }
     });
 
+};

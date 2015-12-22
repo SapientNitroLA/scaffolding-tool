@@ -5,6 +5,8 @@
  */
 module.exports = function( grunt ) {
 
+    'use strict';
+
     // Accept specific files
     // --files="less/mgmGrand/some/path/index.less"
     // --files="less/mgmGrand/some/path/index.less, less/mgmGrand/some/path/index.less"
@@ -15,7 +17,8 @@ module.exports = function( grunt ) {
     if ( files ) {
 
         files = files.split( /,\s*/ );
-        tasks = 'less:dev'
+        tasks = 'less:dev';
+
     }
 
     grunt.config( 'watch', {
