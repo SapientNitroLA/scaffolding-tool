@@ -1,12 +1,11 @@
 - ESLINT
-    - configure eslint grunt task
-    - change grunt-githooks to eslint
-    - custom styles
-        - define arg
-- fix LESS sourcemaps
+    - make sure eslint checks ALL directories
+- LESS
+    - remove rename method?
 - test if jquery is truly protected - noconflict
 - research matchmedia/matchmedia.addlistener
 - update/move namespace.js
 - add/move matchMedia deps to global includes?
 - Fix `require-config.js` and `config-require.js`
 - research Flow integration?
+- `dependencies` vs `dev-dependencies`?
