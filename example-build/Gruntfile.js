@@ -47,4 +47,7 @@ module.exports = function( grunt ) {
         'less:dist'
     ]);
 
+    // Auto-loads Grunt plugins
+    require( 'load-grunt-tasks' )( grunt );
+
 };
