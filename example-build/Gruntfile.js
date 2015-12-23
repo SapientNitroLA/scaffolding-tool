@@ -2,6 +2,9 @@ module.exports = function( grunt ) {
 
     'use strict';
 
+    // Measure execution time
+    require( 'time-grunt' )( grunt );
+
     /* Configure */
     grunt.initConfig({
         pkg: grunt.file.readJSON( 'package.json' ),

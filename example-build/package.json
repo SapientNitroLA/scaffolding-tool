@@ -20,7 +20,8 @@
     "grunt-githooks": "^0.4.0",
     "load-grunt-tasks": "^3.4.0",
     "lodash.clonedeep": "^3.0.2",
-    "lodash.merge": "^3.3.2"
+    "lodash.merge": "^3.3.2",
+    "time-grunt": "^1.2.2"
   },
   "scripts": {
     "postinstall": "grunt githooks"
