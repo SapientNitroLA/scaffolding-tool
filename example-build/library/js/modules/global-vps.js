@@ -3,7 +3,7 @@
  */
 define(
     [
-        'vendor/viewport'
+        'vendor/ViewportJS'
     ],
     function(
 
