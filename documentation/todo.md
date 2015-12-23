@@ -1,7 +1,5 @@
 - ESLINT
     - make sure eslint checks ALL directories
-- LESS
-    - remove rename method?
 - test if jquery is truly protected - noconflict
 - research matchmedia/matchmedia.addlistener
 - update/move namespace.js
