@@ -2,6 +2,9 @@ module.exports = function( grunt ) {
 
     'use strict';
 
+    // Auto-loads Grunt plugins
+    require( 'load-grunt-tasks' )( grunt );
+
     // Measure execution time
     require( 'time-grunt' )( grunt );
 
@@ -49,8 +52,5 @@ module.exports = function( grunt ) {
         'clean:css',
         'less:dist'
     ]);
-
-    // Auto-loads Grunt plugins
-    require( 'load-grunt-tasks' )( grunt );
 
 };
