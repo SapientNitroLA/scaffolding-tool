@@ -7,29 +7,41 @@ module.exports = function( grunt ) {
 
     'use strict';
 
-    var srcFiles = [
-        '**/.*',
-        '**',
-        '!.git',
-        '!.DS_Store',
-        '!docs/**',
-        '!**/less/**',
-        '!resources/**',
-        '!package.json',
-        '!Gruntfile.js',
-        '!**/readme.md',
-        '!**/css/config/**',
-        '!**/node_modules/**'
-    ];
+    var options = {
+        expand: true,
+        files: [
+            '.htaccess',
+            'components/**',
+            'index.html',
+            'library/**',
+            'pages/**',
+            'services/**',
+            '!**/boilerplate/**',
+            '!**/composer.*',
+            '!**/css/config/**',
+            '!**/readme.md',
+            '!**/styles/**'
+        ]
+    };
 
     grunt.config( 'copy', {
         dev: {
-            src: srcFiles,
-            dest: '<%= buildPath.dev %>'
+            files: [
+                {
+                    expand: options.expand,
+                    src: options.files,
+                    dest: '<%= buildPath.dev %>'
+                }
+            ]
         },
         dist: {
-            src: srcFiles,
-            dest: '<%= buildPath.dist %>'
+            files: [
+                {
+                    expand: options.expand,
+                    src: options.files,
+                    dest: '<%= buildPath.dist %>'
+                }
+            ]
         }
     });
 
