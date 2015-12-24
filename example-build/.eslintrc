@@ -115,7 +115,8 @@
     "eol-last": 2,
     "key-spacing": [2, {
         "beforeColon": false,
-        "afterColon": true
+        "afterColon": true,
+        "mode": "minimum"
     }],
     "new-cap": [2, {
       "newIsCap": true,
