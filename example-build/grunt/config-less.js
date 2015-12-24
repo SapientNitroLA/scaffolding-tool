@@ -10,23 +10,31 @@ module.exports = function( grunt ) {
     // Accept specific files
     // --files="less/mgmGrand/some/path/index.less"
     // --files="less/mgmGrand/some/path/index.less, less/mgmGrand/some/path/index.less"
-    var path = require( 'path' )
-        , files = grunt.option( 'files' )
+    var files = grunt.option( 'files' )
         , libPath = 'library'
+        , libStyles = libPath + '/styles'
         , options = {
-            relativeUrls: true,
-            strictMath: true,
+            compress: true,
             files: {
                 expand: true,
-                cwd: 'library',
+                cwd: libStyles,
                 src: [
                     '**/index.less',
                     '**/svg.less',
                     '**/logo.less',
                     '**/logo-resorts.less'
                 ],
-                dest: 'library',
+                dest: libPath + '/css',
                 ext: '.css'
+            },
+            paths: libStyles,
+            relativeUrls: true,
+            strictMath: true,
+            sourceMap: {
+                dev: true,
+                dist: false,
+                fileInline: true,
+                rootPath: '../../../../'
             }
         }
         ;
@@ -37,52 +45,33 @@ module.exports = function( grunt ) {
 
     }
 
-    // Set the destination to a directory named "css"
-    function rename( dest, src ) {
-
-        var splitDirs = src.split( '/' );
-
-        splitDirs[ splitDirs.indexOf( 'styles' ) ] = 'css';
-
-        return path.join( dest, splitDirs.join( '/' ) );
-
-    }
-
     grunt.config( 'less', {
         dist: {
             options: {
-                compress: true,
-                relativeUrls: options.relativeUrls,
-                sourceMap: false,
-                strictMath: options.strictMath
+                paths: options.paths, // shared
+                compress: options.compress,
+                relativeUrls: options.relativeUrls, // shared
+                sourceMap: options.sourceMap.dist,
+                strictMath: options.strictMath // shared
             },
-            files: [
-                {
-                    expand: true,
-                    cwd: libPath,
-                    src: options.files.src,
-                    dest: libPath,
-                    ext: '.css',
-                    rename: rename
-                }
-            ]
+            files: [ files ]
         },
         dev: {
             options: {
-                relativeUrls: options.relativeUrls,
-                sourceMap: true,
-                sourceMapFileInline: true,
-                sourceMapRootpath: '../../../../',
-                strictMath: options.strictMath
+                paths: options.paths, // shared
+                relativeUrls: options.relativeUrls, // shared
+                sourceMap: options.sourceMap.dev,
+                sourceMapFileInline: options.sourceMap.fileInline, // shared
+                sourceMapRootpath: options.sourceMap.rootPath, // shared
+                strictMath: options.strictMath // shared
             },
             files: [
                 {
-                    expand: true,
-                    cwd: libPath,
+                    expand: options.files.expand,
+                    cwd: options.files.cwd,
                     src: files || options.files.src,
-                    dest: libPath,
-                    ext: '.css',
-                    rename: rename
+                    dest: options.files.dest,
+                    ext: options.files.ext
                 }
             ]
         }
