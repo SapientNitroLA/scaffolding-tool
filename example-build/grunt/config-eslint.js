@@ -11,6 +11,8 @@ module.exports = function( grunt ) {
     grunt.config( 'eslint', {
         src: [
             'library/**/*.js',
+            'grunt/*.js',
+            'Gruntfile.js',
             '!library/**/config/*.js',
             '!library/**/vendor/**/*.js'
         ]
