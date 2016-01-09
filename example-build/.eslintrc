@@ -6,7 +6,9 @@
   },
   "extends": "eslint:recommended",
   //place settings for globals here
-  "globals": {},
+  "globals": {
+    "SN"
+    },
   "plugins": [],
   // https://github.com/activatedgeek/eslintrc/blob/master/.eslintrc
   "rules": {
@@ -14,7 +16,7 @@
      * Strict mode
      */
     "no-var": 0,
-    "strict": 1,
+    "strict": [1, "function"],
     /**
      * Basic errors
      */
