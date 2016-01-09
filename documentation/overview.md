@@ -158,7 +158,6 @@
             - jquery.js
             - matchMedia.addListener.js
             - matchMedia.js
-            - Modernizr.js
             - picturefill.js
             - require.js
             - viewport.js
