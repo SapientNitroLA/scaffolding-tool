@@ -7,24 +7,18 @@ module.exports = function( grunt ) {
 
     'use strict';
 
-    var mainConfigFile = grunt.file.read( 'library/js/config/require-config.js' )
-        , vm = require( 'vm' )
-        , mainConfig = {}
+    require( 'amdefine/intercept' );
+
+    var mainConfig = require( '../library/js/config/require-config.js' )
+        , length = mainConfig.modules.length
         , distFiles = {}
-        , modules
-        , length
         , path
         , i
         ;
 
-    vm.runInNewContext( mainConfigFile, mainConfig );
-
-    modules = mainConfig.require.modules;
-    length = modules.length;
-
     for ( i = 0; i < length; i++ ) {
 
-        path = modules[ i ].name;
+        path = mainConfig.modules[ i ].name;
 
         distFiles[ '<%= buildPath.dist %>library/js/' + path + '.js' ] = '<%= buildPath.dist %>library/js/' + path + '.js';
 
