@@ -4,7 +4,7 @@
  */
 define(
     [
-        'vendor/matchmedia',
+        'vendor/matchMedia',
         'vendor/matchMedia.addListener'
     ],
     function() {
