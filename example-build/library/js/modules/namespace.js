@@ -1,5 +1,5 @@
-// Global Namespace for MGM Resorts International
-window.MGMRI = window.MGMRI || {};
+// Global Namespace for SapientNitro object
+window.SN = window.SN || {};
 
 /*
 * Convenience function for parsing string namespaces and automatically generating nested namespaces.
@@ -7,12 +7,12 @@ window.MGMRI = window.MGMRI || {};
 * http://yuilibrary.com/yui/docs/api/classes/YUI.html#method_namespace
 *
 * Example:
-*    MGMRI.extend( 'some.type.of.object' );
+*    SN.extend( 'some.type.of.object' );
 *
 * @param ns {String} A dot separated namespace
 *
 */
-window.MGMRI.extend = function( ns ) {
+window.SN.extend = function( ns ) {
 
     'use strict';
 
@@ -22,7 +22,7 @@ window.MGMRI.extend = function( ns ) {
         , i
         ;
 
-    if ( parts[ 0 ] === 'MGMRI' ) {
+    if ( parts[ 0 ] === 'SN' ) {
 
         parts = parts.slice( 1 );
 

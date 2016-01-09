@@ -1,3 +1,3 @@
 /* jshint quotmark: false */
-MGMRI.extend( 'data' );
-MGMRI.data = {};
+SN.extend( 'data' );
+SN.data = {};

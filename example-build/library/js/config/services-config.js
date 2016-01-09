@@ -1,2 +1,2 @@
-MGMRI.extend( 'services' );
-MGMRI.services = {};
+SN.extend( 'services' );
+SN.services = {};
