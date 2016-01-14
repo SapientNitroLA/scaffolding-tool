@@ -3,6 +3,8 @@ define({
 
         'use strict';
 
+        var path = SN.app || 'mediators/' + name;
+
         // Load RequireJS config
         req( [ '../../library/js/config/require-config.js' ], function( value ) {
 
@@ -13,7 +15,7 @@ define({
             require.config( value );
 
             // Load app
-            req( [ 'mediators/' + name ] );
+            req( [ path ] );
 
         });
 
