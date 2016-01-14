@@ -1,4 +1,4 @@
-define(
+require(
     [
         'jquery',
         'mediators/common',
@@ -42,4 +42,5 @@ define(
         home.init();
 
     }
+
 );
