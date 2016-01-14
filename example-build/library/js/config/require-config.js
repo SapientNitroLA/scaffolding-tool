@@ -2,17 +2,7 @@ define( function() {
 
     'use strict';
 
-    var globalExcludes
-        , config
-        ;
-
-    globalExcludes = [
-        'jquery',
-        'mediators/common',
-        'modules/global-vps'
-    ];
-
-    config = {
+    var config = {
         // This is the main path to which our modules are relative.
         baseUrl: ( typeof SN !== 'undefined' && SN.baseURL ) || '../../library/js',
 
@@ -88,8 +78,10 @@ define( function() {
                 ]
             },
             {
-                name: 'mediators/home',
-                exclude: globalExcludes
+                name: 'mediators/mediator1'
+            },
+            {
+                name: 'mediators/home'
             }
         ],
 
@@ -112,6 +104,18 @@ define( function() {
         // Time in seconds until timeout
         waitSeconds: 3
     };
+
+    config.modules = config.modules.map( function( mod, index ) {
+
+        if ( mod.name.indexOf( 'mediators/common' ) < 0 ) {
+
+            mod.exclude = config.globalExcludes;
+
+        }
+
+        return mod;
+
+    } );
 
     return config;
 
