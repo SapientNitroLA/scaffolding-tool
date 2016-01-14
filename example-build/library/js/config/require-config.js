@@ -99,8 +99,7 @@ define( function() {
              jquery.js defines its path as `jquery`. The following
              option allows us to locate it at a more logical path.
             */
-            'jquery': 'vendor/jquery',
-            'bootstrap': 'mediators/bootstrap'
+            'jquery': 'vendor/jquery'
         },
 
         shim: {
