@@ -2,8 +2,8 @@
     - test LESS --files flag
 - test if jquery is truly protected - noconflict
 - update/move namespace.js
-- add/move matchMedia deps to global includes?
 - Fix `require-config.js` and `config-require.js`
     - Add config plugin
 - research Flow integration?
 - `dependencies` vs `dev-dependencies`?
+- Add boilerplate navigation header and footer
