@@ -10,10 +10,7 @@ module.exports = function( grunt ) {
     require( 'amdefine/intercept' );
 
     var mainConfig = require( '../library/js/config/require-config.js' )
-        , _ = {
-            merge: require( 'lodash.merge' ),
-            cloneDeep: require( 'lodash.cloneDeep' )
-        }
+        , defaultsDeep = require( 'lodash.defaultsdeep' )
         , common = {
             /*
              The path that represents the project's root folder
@@ -27,31 +24,8 @@ module.exports = function( grunt ) {
             */
             baseUrl: 'js',
 
-            /*
-             Map a module's ID to another ID. This allows a module to require
-             'moduleA' and instead get 'moduleB'.
-            */
-            map: mainConfig.map,
-
-            /*
-             Create an object for each bootstrap to be optimized. Their immediate
-             and deep dependencies will be built into the main module's file.
-             Paths is relative to `baseUrl`.
-             Modules are added in the site's `require-config.js` file.
-            */
-            modules: mainConfig.modules,
-
             // Ignore the css files
             optimizeCss: 'none',
-
-            /*
-             Since jQuery defines its path as `jquery`, it would need to be
-             found at the root of your js directory (`baseUrl`). This may not
-             always be possible. The following option allows us to locate
-             jQuery at a more logical path.
-             Paths are relative to `baseUrl`.
-            */
-            paths: mainConfig.paths,
 
             /*
              Introduced in 2.1.2: If using "dir" for an output directory, normally the
@@ -62,29 +36,22 @@ module.exports = function( grunt ) {
              to true if you want to skip optimizing those other non-build bundle JS
              files.
             */
-            skipDirOptimize: true,
-
-            /*
-             If shim config is used in the app during runtime, duplicate the config
-             here. Necessary if shim config is used, so that the shim's dependencies
-             are included in the build.
-            */
-            shim: mainConfig.shim
+            skipDirOptimize: true
         }
         ;
 
     grunt.config( 'requirejs', {
         dev: {
-            options: _.merge( _.cloneDeep( common ), {
+            options: defaultsDeep( {
                 dir: '<%= buildPath.dev %>library/',
                 optimize: 'none' // Set 'none' so you can see how the files are concatenated.
-            } )
+            }, common, mainConfig )
         },
         dist: {
-            options: _.merge( _.cloneDeep( common ), {
+            options: defaultsDeep( {
                 dir: '<%= buildPath.dist %>library/',
                 skipDirOptimize: false
-            } )
+            }, common, mainConfig )
         }
     });
 
