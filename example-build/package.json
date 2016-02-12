@@ -21,6 +21,7 @@
     "grunt-githooks": "^0.4.0",
     "load-grunt-tasks": "^3.4.0",
     "lodash.defaultsdeep": "^4.0.1",
+    "node-dir": "^0.1.11",
     "time-grunt": "^1.3.0"
   },
   "scripts": {
