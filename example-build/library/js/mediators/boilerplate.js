@@ -1,38 +1,57 @@
-require(
-    [
-        'jquery',
-        'mediators/common'
-    ],
+//>>excludeStart( 'buildExclude', pragmas.buildExclude );
+require( [ '../../library/js/config/require-config.js' ], function( config ) {
 
-    function(
+    'use strict';
 
-        $,
-        common
+    require.config( config );
+    //>>excludeEnd( 'buildExclude' );
 
-    ) {
+    require(
+        [
+            'jquery',
+            'mediators/common',
+            'modules/global-vps',
+            'modules/pubsub'
+        ],
+        function(
 
-        'use strict';
+            $,
+            common,
+            viewport,
+            pubsub
 
-        common.init();
+        ) {
 
-        var mediator = {
+            common.init();
 
-            init: function() {
+            var home = {
 
-                console.log('mediator.init() executed');
+                init: function() {
 
-                $( this.initUI.bind( this ) );
+                    $( this.initUI.bind( this ) );
 
-            },
+                },
 
-            initUI: function() {
+                initUI: function() {
 
-                console.log('mediator.initUI() executed');
+                    console.log( 'home mediator' );
 
-            }
-        };
+                    viewport.subscribe( '*', function( current ) {
 
-        mediator.init();
+                        console.log( 'current viewport:', current.name );
 
-    }
-);
+                    });
+
+                }
+
+            };
+
+            home.init();
+
+        }
+
+    );
+    //>>excludeStart( 'buildExclude', pragmas.buildExclude );
+
+});
+//>>excludeEnd( 'buildExclude' );

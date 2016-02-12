@@ -76,12 +76,14 @@ define( function() {
                 include: [
                     'modules/global-vps'
                 ]
-            },
-            {
-                name: 'mediators/mediator1'
-            },
-            {
-                name: 'mediators/home'
+            }
+            , {
+                name: 'mediators/boilerplate',
+                exclude: [
+                    'jquery',
+                    'mediators/common',
+                    'modules/global-vps'
+                ]
             }
         ],
 
@@ -94,6 +96,10 @@ define( function() {
             'jquery': 'vendor/jquery'
         },
 
+        pragmas: {
+            buildExclude: false
+        },
+
         shim: {
             // Fix matchMedia.addListener race condition
             'vendor/matchMedia.addListener': {
@@ -104,18 +110,6 @@ define( function() {
         // Time in seconds until timeout
         waitSeconds: 3
     };
-
-    config.modules = config.modules.map( function( mod, index ) {
-
-        if ( mod.name.indexOf( 'mediators/common' ) < 0 ) {
-
-            mod.exclude = config.globalExcludes;
-
-        }
-
-        return mod;
-
-    } );
 
     return config;
 
