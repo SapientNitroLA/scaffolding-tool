@@ -12,7 +12,7 @@ module.exports = function( grunt ) {
         files: [
             '.htaccess',
             'components/**',
-            'index.html',
+            'index.*',
             'library/**',
             'pages/**',
             'services/**',
