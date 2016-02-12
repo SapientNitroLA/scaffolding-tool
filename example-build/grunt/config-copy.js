@@ -21,6 +21,10 @@ module.exports = function( grunt ) {
             '!**/css/config/**',
             '!**/readme.md',
             '!**/styles/**'
+        ],
+        devFiles: [],
+        distFiles: [
+            // '!**/boilerplate/**'
         ]
     };
 
@@ -29,7 +33,7 @@ module.exports = function( grunt ) {
             files: [
                 {
                     expand: options.expand,
-                    src: options.files,
+                    src: options.files.concat( options.devFiles ),
                     dest: '<%= buildPath.dev %>'
                 }
             ]
@@ -38,7 +42,7 @@ module.exports = function( grunt ) {
             files: [
                 {
                     expand: options.expand,
-                    src: options.files,
+                    src: options.files.concat( options.distFiles ),
                     dest: '<%= buildPath.dist %>'
                 }
             ]
