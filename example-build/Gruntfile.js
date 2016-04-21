@@ -45,12 +45,14 @@ module.exports = function( grunt ) {
 
     grunt.registerTask( 'lessDev', 'Build to compile Less files during development.', [
         'clean:css',
-        'less:dev'
+        'less:dev',
+        'postcss'
     ]);
 
     grunt.registerTask( 'lessDist', 'Build to compile Less files for distribution.', [
         'clean:css',
-        'less:dist'
+        'less:dist',
+        'postcss'
     ]);
 
 };
