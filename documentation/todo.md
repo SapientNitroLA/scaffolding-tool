@@ -1,11 +1,12 @@
 - Add boilerplate navigation header and footer
 - Grunt
     - test LESS --files flag
-    - grunt-concurrent
 - test if jquery is truly protected - noconflict
 - update/move namespace.js
 - Fix `require-config.js` and `config-require.js`
     - Add config plugin
+- TESTS
+    - which libraries?
 - RESEARCH:  Flow integration?
 - RESEARCH: `dependencies` vs `dev-dependencies`?
 - RESEARCH: grunt-newer?
