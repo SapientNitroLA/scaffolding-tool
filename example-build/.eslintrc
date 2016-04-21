@@ -1,14 +1,15 @@
 {
+  "root": true,
   "env": {
     "amd": true,
     "node": true,
     "browser": true
   },
   "extends": "eslint:recommended",
-  //place settings for globals here
+  // place settings for globals here
   "globals": {
     "SN"
-    },
+  },
   "plugins": [],
   // https://github.com/activatedgeek/eslintrc/blob/master/.eslintrc
   "rules": {
@@ -20,7 +21,9 @@
     /**
      * Basic errors
      */
+    "array-bracket-spacing": [2, "always"],
     "block-scoped-var": 2,
+    "block-spacing": 2,
     "comma-dangle": [2, "never"],
     "no-alert": 2,
     "no-cond-assign": [2, "always"],
@@ -41,12 +44,11 @@
     "no-sparse-arrays": 2,
     "no-unreachable": 2,
     "quote-props": 0,
-    "quotes": [1, "single"],
     "use-isnan": 2,
     /**
      * Variables
      */
-    "no-shadow": 2,
+    "no-shadow": 0,
     "no-shadow-restricted-names": 2,
     "no-unused-vars": [2, {
       "vars": "local",
@@ -93,7 +95,7 @@
     "no-with": 2,
     "radix": 2,
     "vars-on-top": 0,
-    "wrap-iife": [2, "any"],
+    "wrap-iife": 0,
     "yoda": 2,
     /**
      * Style
@@ -124,9 +126,11 @@
       "newIsCap": true,
       "capIsNew": false
     }],
+    "no-mixed-spaces-and-tabs": 2,
     "no-multiple-empty-lines": [2, {
       "max": 2
     }],
+    "no-multi-spaces": 2,
     "no-nested-ternary": 2,
     "no-new-object": 2,
     "no-spaced-func": 2,
@@ -140,11 +144,24 @@
       "before": false,
       "after": true
     }],
-    "space-after-keywords": 2,
+    // "space-after-keywords": 2,
     "space-before-blocks": 2,
     "space-before-function-paren": [2, "never"],
-    "space-infix-ops": 2,
-    "space-return-throw-case": 2,
-    "spaced-comment": 0
+    "space-infix-ops": [2, {"int32Hint": false}],
+    // "space-in-parens": [2, "always"],
+    // "space-return-throw-case": 2,
+    "space-unary-ops": 2,
+    "spaced-comment": [2, "always", {
+      "exceptions": [
+        "-",
+        "+",
+        "*",
+        "!",
+      ],
+      "markers": [
+        ">>excludeStart(",
+        ">>excludeEnd("
+      ]
+    }]
   }
 }
