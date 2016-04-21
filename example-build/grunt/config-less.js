@@ -8,8 +8,9 @@ module.exports = function( grunt ) {
     'use strict';
 
     // Accept specific files
-    // --files="less/some/path/index.less"
-    // --files="less/some/path/index.less, less/some/path/index.less"
+    // --files="pages/boilerplate/index.less"
+    // --files="pages/boilerplate/index.less, components/example/index.less"
+
     var stylesDir = 'library/styles'
         , options = {
             compress: true,
