@@ -1,11 +1,16 @@
+- Add boilerplate navigation header and footer
 - Grunt
     - test LESS --files flag
+    - grunt-concurrent
 - test if jquery is truly protected - noconflict
 - update/move namespace.js
 - Fix `require-config.js` and `config-require.js`
     - Add config plugin
-- research Flow integration?
-- `dependencies` vs `dev-dependencies`?
-- Add boilerplate navigation header and footer
-- grunt-newer?
-- mixin library?
+- RESEARCH:  Flow integration?
+- RESEARCH: `dependencies` vs `dev-dependencies`?
+- RESEARCH: grunt-newer?
+- RESEARCH: mixin library?
+- RESEARCH: change default Apache to Express
+    - use Express SSI plugin
+    - use node JSON server (E.G. grunt-json-server)
+    - use node.js PHP library
