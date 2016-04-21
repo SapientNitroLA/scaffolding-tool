@@ -7,23 +7,36 @@ module.exports = function( grunt ) {
 
     'use strict';
 
-    // Accept specific files
-    // --files="less/some/path/index.less"
-    // --files="less/some/path/index.less, less/some/path/index.less"
+    // Accepts specific files
+    // --files="pages/boilerplate/index.less"
+    //
+    // Accepts files globbing
+    // --files="pages/boilerplate/**/*.less"
+    //
+    // Accepts multiple files/globs
+    // --files="pages/boilerplate/index.less, components/example/index.less"
+    // --files="pages/boilerplate/*.less, components/example/*.less"
+
     var tasks = [ 'lessDev' ]
-        , files = grunt.option( 'files' )
+        , stylesDir = 'library/styles/'
+        , files = [ 'library/styles/**/*.less' ]
+        , param = grunt.option( 'files' )
         ;
 
-    if ( files ) {
+    if ( param ) {
 
-        files = files.split( /,\s*/ );
+        files = param.split( /,\s*/ ).map( function( file ) {
+
+            return stylesDir + file;
+        });
+
         tasks = 'less:dev';
 
     }
 
     grunt.config( 'watch', {
         less: {
-            files: [ 'library/styles/**/*.less' ],
+            files: files,
             tasks: tasks
         }
     });
