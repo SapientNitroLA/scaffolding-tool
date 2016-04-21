@@ -16,7 +16,6 @@ module.exports = function( grunt ) {
             'library/**',
             'pages/**',
             'services/**',
-            '!**/boilerplate/**',
             '!**/composer.*',
             '!**/css/config/**',
             '!**/readme.md',
