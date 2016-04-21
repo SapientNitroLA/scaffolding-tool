@@ -30,7 +30,8 @@ module.exports = function( grunt ) {
         'eslint', // Lint all appropriate js files
         'less:dev',
         'copy:dev',
-        'requirejs:dev'
+        'requirejs:dev',
+        'uglify:dev'
     ]);
 
     grunt.registerTask( 'dist', 'Build for integration handoff.', [

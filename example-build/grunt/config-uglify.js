@@ -11,7 +11,8 @@ module.exports = function( grunt ) {
 
     var mainConfig = require( '../library/js/config/require-config.js' )
         , length = mainConfig.modules.length
-        , distFiles = {}
+        , task = grunt.cli.tasks[ 0 ]
+        , files = {}
         , path
         , i
         ;
@@ -20,25 +21,32 @@ module.exports = function( grunt ) {
 
         path = mainConfig.modules[ i ].name;
 
-        distFiles[ '<%= buildPath.dist %>library/js/' + path + '.js' ] = '<%= buildPath.dist %>library/js/' + path + '.js';
+        files[ '<%= buildPath.' + task + ' %>library/js/' + path + '.js' ] = '<%= buildPath.' + task + ' %>library/js/' + path + '.js';
 
     }
 
     // Concatenate require.js and common.js to fix mediator race condition
-    distFiles[ '<%= buildPath.dist %>library/js/vendor/require.js' ] = [
-        '<%= buildPath.dist %>library/js/vendor/require.js',
-        '<%= buildPath.dist %>library/js/mediators/common.js'
+    files[ '<%= buildPath.' + task + ' %>library/js/vendor/require.js' ] = [
+        '<%= buildPath.' + task + ' %>library/js/vendor/require.js',
+        '<%= buildPath.' + task + ' %>library/js/mediators/common.js'
     ];
 
     grunt.config( 'uglify', {
-        options: {
-            compress: {
-                drop_console: true
-            },
-            report: 'gzip'
+        dev: {
+            files: files,
+            options: {
+                beautify: true,
+                mangle: false
+            }
         },
         dist: {
-            files: distFiles
+            files: files,
+            options: {
+                compress: {
+                    drop_console: true
+                },
+                report: 'gzip'
+            }
         }
     });
 
