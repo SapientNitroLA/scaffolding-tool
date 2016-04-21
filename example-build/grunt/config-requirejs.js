@@ -28,9 +28,6 @@ module.exports = function( grunt ) {
             // Ignore the css files
             optimizeCss: 'none',
 
-            pragmas: {
-                buildExclude: true
-            },
             /*
              Introduced in 2.1.2: If using "dir" for an output directory, normally the
              optimize setting is used to optimize the build bundles (the "modules"
@@ -83,9 +80,9 @@ module.exports = function( grunt ) {
             options: defaultsDeep( {
                 dir: '<%= buildPath.dev %>library/',
                 modules: buildModuleList(),
-                // pragmas: {
-                //     buildExclude: true
-                // },
+                pragmas: {
+                    buildExclude: true
+                },
                 optimize: 'none' // Set 'none' so you can see how the files are concatenated.
             }, common, mainConfig )
         },
