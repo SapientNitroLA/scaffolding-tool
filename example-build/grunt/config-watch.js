@@ -17,9 +17,9 @@ module.exports = function( grunt ) {
     // --files="pages/boilerplate/index.less, components/example/index.less"
     // --files="pages/boilerplate/*.less, components/example/*.less"
 
-    var tasks = [ 'lessDev' ]
-        , stylesDir = 'library/styles/'
+    var stylesDir = 'library/styles/'
         , files = [ 'library/styles/**/*.less' ]
+        , tasks = [ 'lessDev' ]
         , param = grunt.option( 'files' )
         ;
 
@@ -28,6 +28,7 @@ module.exports = function( grunt ) {
         files = param.split( /,\s*/ ).map( function( file ) {
 
             return stylesDir + file;
+
         });
 
         tasks = 'less:dev';
@@ -35,6 +36,18 @@ module.exports = function( grunt ) {
     }
 
     grunt.config( 'watch', {
+        options: {
+            livereload: true
+        },
+        grunt: {
+            options: {
+                reload: true
+            },
+            files: [
+                'Gruntfile.js',
+                'grunt/*.js'
+            ]
+        },
         less: {
             files: files,
             tasks: tasks
