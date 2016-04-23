@@ -114,9 +114,11 @@
   </ul>
 
   <h3><a href="docs">Documentation</a></h3>
+  <ul>
+    <?= getDirectoryList( "./docs/" ); ?>
+  </ul>
 
   <h3><a href="resources">Resources</a></h3>
-
   <ul>
     <?= getDirectoryList( "./resources/" ); ?>
   </ul>
