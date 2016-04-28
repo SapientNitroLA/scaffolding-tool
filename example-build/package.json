@@ -37,7 +37,7 @@
       "matchMedia.addListener": "github:paulirish/matchMedia.js/master#matchMedia.addListener.js",
       "picturefill": "github:scottjehl/picturefill/3.0.1",
       "require": "github:jrburke/requirejs/2.1.22",
-      "ViewportJS": "github:ryanfitzer/ViewportJS/master"
+      "ViewportJS": "github:ryanfitzer/ViewportJS/v1.0.3"
     }
   }
 }
