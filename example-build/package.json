@@ -35,8 +35,8 @@
       "jquery": "github:jquery/jquery/2.0.3",
       "matchMedia": "github:paulirish/matchMedia.js/0.3.0",
       "matchMedia.addListener": "github:paulirish/matchMedia.js/master#matchMedia.addListener.js",
-      "require": "github:jrburke/requirejs/2.1.22",
       "picturefill": "github:scottjehl/picturefill/3.0.2",
+      "require": "github:requirejs/requirejs/2.2.0",
       "ViewportJS": "github:ryanfitzer/ViewportJS/v1.0.3"
     }
   }
