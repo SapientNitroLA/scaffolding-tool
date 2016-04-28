@@ -32,7 +32,7 @@
   "volo": {
     "baseDir": "library/js/vendor",
     "dependencies": {
-      "jquery": "github:jquery/jquery/2.0.3",
+      "jquery": "github:jquery/jquery/2.2.3",
       "matchMedia": "github:paulirish/matchMedia.js/0.3.0",
       "matchMedia.addListener": "github:paulirish/matchMedia.js/master#matchMedia.addListener.js",
       "picturefill": "github:scottjehl/picturefill/3.0.2",
