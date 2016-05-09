@@ -28,6 +28,7 @@ define(
                 console.log( 'common.initUI' );
 
             }
+
         };
 
         return common;
