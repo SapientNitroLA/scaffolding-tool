@@ -1,2 +1,5 @@
-SN.extend( 'services' );
-SN.services = {};
+NAMESPACE.extend( {
+    services: {
+        value: 'services value'
+    }
+} );

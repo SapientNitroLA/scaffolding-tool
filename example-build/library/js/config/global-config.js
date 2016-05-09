@@ -1,3 +1,5 @@
-/* jshint quotmark: false */
-SN.extend( 'data' );
-SN.data = {};
+NAMESPACE = nmsp( {
+    global: {
+        value: 'global value'
+    }
+} );

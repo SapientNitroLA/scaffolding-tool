@@ -2,7 +2,6 @@
 - Grunt
     - test LESS --files flag
 - test if jquery is truly protected - noconflict
-- update/move namespace.js
 - Fix `require-config.js` and `config-require.js`
     - Add config plugin
 - TESTS

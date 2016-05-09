@@ -150,7 +150,6 @@
             - home.js
         - modules
             - global-vps.js
-            - namespace.js
             - noconflict.js
             - polyfill.js
             - pubsub.js
@@ -158,6 +157,7 @@
             - jquery.js
             - matchMedia.addListener.js
             - matchMedia.js
+            - nmsp.js
             - picturefill.js
             - require.js
             - viewport.js
