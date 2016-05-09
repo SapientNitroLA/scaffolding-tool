@@ -1,11 +1,11 @@
-- Add boilerplate navigation header and footer
 - Grunt
     - test LESS --files flag
 - test if jquery is truly protected - noconflict
 - Fix `require-config.js` and `config-require.js`
     - Add config plugin
+    - buildModuleList() not working correctly
 - TESTS
-    - which libraries?
+    - which libraries? Karma/Mocha/Chai
 - RESEARCH:  Flow integration?
 - RESEARCH: `dependencies` vs `dev-dependencies`?
 - RESEARCH: grunt-newer?
@@ -13,4 +13,3 @@
 - RESEARCH: change default Apache to Express
     - use Express SSI plugin
     - use node JSON server (E.G. grunt-json-server)
-    - use node.js PHP library
